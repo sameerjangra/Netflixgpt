@@ -4,12 +4,22 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { USER_AVTAR, LOGO } from "../utils/constant";
+import { USER_AVTAR, LOGO, SUPPORTED_LANGUAGES } from "../utils/constant";
+import { toogleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
+import { resetSelectedMovie } from "../utils/movieSlice"; // ✅ Import the reset action
+
 
 const Header = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const showGptSearch =useSelector((store)=>store.gpt.showGptSearch)
+
+  const handleLogoClick = () => {
+    dispatch(resetSelectedMovie()); // ✅ Reset the selected movie
+    navigate("/browse"); // ✅ Navigate to the browse page
+  };
 
   const handleSignOut = () => {
     signOut(auth)
@@ -39,17 +49,41 @@ const Header = () => {
     return () => unsubscribe(); // Cleanup
   }, [dispatch, navigate]);
 
+
+  const handleGptSearchClick =()=>{
+    dispatch(toogleGptSearchView());
+  }
+
+  const handleLanguageChange =(e)=>{
+    dispatch (changeLanguage(e.target.value))
+  }
+
   return (
     <div className="absolute top-0 left-0 w-full flex justify-between z-30">
+
       <div>
         <img
           className="w-44 ml-24 m-2 p-2 "
           src={LOGO}
           alt="logo"
+          onClick={handleLogoClick}
         />
       </div>
       {user && (
         <div className="flex mr-8 self-center z-20">
+          {showGptSearch && (
+          <select className="p-2 m-2 bg-gray-900 text-white" 
+          onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map(
+              lang=> <option  
+              key={lang.identifier} 
+              value={lang.identifier}>{lang.name}
+                </option>)}
+          </select>)}
+          <button className=" bg-blue-500 py-2 px-4 m-2 rounded-lg text-white"
+          onClick={handleGptSearchClick}>
+            {showGptSearch ? "Homepage" : "GPT Search"}
+            </button>
           <img
             className="h-14 w-14 p-2 m-2"
             alt="userlogo"

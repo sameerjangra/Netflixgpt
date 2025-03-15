@@ -9,4 +9,16 @@ export const API_OPTION ={
     }
   };
 
-export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/"
+export const BG_IMG="https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_large.jpg"
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const SUPPORTED_LANGUAGES = [ 
+  {identifier:"en" , name :"English"},
+  {identifier:"hindi" , name :"Hindi"},
+  {identifier:"spanish" , name :"Spanish"}
+];
+
+export const OPENAI_KEY="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";
+
+// GEMINI_KEY ="AIzaSyBbYRnMkYhYqHINRT9Q6F9IWx0vLghiz4w"; 
