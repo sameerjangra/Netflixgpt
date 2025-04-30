@@ -20,5 +20,3 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPENAI_KEY="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";
-
-// GEMINI_KEY ="AIzaSyBbYRnMkYhYqHINRT9Q6F9IWx0vLghiz4w"; 
