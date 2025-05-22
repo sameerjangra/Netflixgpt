@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { useSelector } from "react-redux";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
@@ -24,7 +24,7 @@ const Browse = () => {
   
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white md:h-[2200px] h-[1400px]">
       {/* ✅ 1. Header */}
       <Header />
 
