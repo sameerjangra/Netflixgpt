@@ -8,7 +8,7 @@ const MovieCategory = ({ title, movies, onMovieSelect }) => {
       <h2 className=" relative text-lg  md:text-2xl font-bold mb-5 md:mb-4 z-50">{title}</h2>
       
       {/* ✅ Horizontal Scroll Added */}
-      <div className="flex gap-1 md:gap-4 overflow-x-auto scrollbar-hide md:mb-0 mb-28 ">
+      <div className="flex gap-1 md:gap-4 overflow-x-auto no-scrollbar md:mb-0 mb-28 ">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} onMovieSelect={onMovieSelect} />
         ))}
