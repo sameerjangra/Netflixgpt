@@ -10,7 +10,7 @@ const getTrimmedOverview = (text, wordLimit = 18) => {
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="w-full aspect-video px-4 sm:px-8 md:px-16 pt-[58%] sm:pt-[20%] md:pt-[10%] absolute bg-gradient-to-r from-black z-10 py-4 md:py-0">
+    <div className="w-full aspect-video px-4 sm:px-8 md:px-16 pb-10 pt-[58%] sm:pt-[20%] md:pt-[10%] absolute bg-gradient-to-r from-black z-10 py-4 md:py-0">
       <h1 className="text-xl sm:text-3xl md:text-5xl font-bold text-white">
         {title}
       </h1>
